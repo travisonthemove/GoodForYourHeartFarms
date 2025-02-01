@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Green Bean Admin - Good For Your Heart Farms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Basic styles for admin panel */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f5f5f5;
+    }
+    header, main, footer {
+      max-width: 800px;
+      margin: 1rem auto;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #2a5d34;
+    }
+    label {
+      display: block;
+      margin-top: 0.5rem;
+    }
+    input[type="text"],
+    input[type="date"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.3rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border: none;
+      background: #2a5d34;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .task-done {
+      text-decoration: line-through;
+    }
+    .admin-nav {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #ccc;
+      color: #000;
+      padding: 0.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Link back to public page if needed -->
+  <a href="greenbean.html" class="admin-nav" aria-label="Return to Public View">Public</a>
+
+  <header>
+    <h1>Green Bean Admin Panel</h1>
+    <p>Manage crop details and tasks for our Green Bean variety at Good For Your Heart Farms.</p>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Crop Details</h2>
+      <p><strong>Sow Date:</strong> <span id="sow-date">2025-04-15</span></p>
+      <p><strong>Expected Harvest Date:</strong> <span id="harvest-date">2025-08-20</span></p>
+      <p><strong>Last Watering:</strong> <span id="last-watering">2025-07-01</span></p>
+      <p><strong>Last Fertilization:</strong> <span id="last-fertilization">2025-06-25</span></p>
+      <p><strong>Last Insect Inspection:</strong> <span id="last-insect-inspection">2025-06-30</span></p>
+    </section>
+    
+    <section>
+      <h2>Upcoming Tasks</h2>
+      <ul id="task-list">
+        <!-- Example tasks -->
+        <li>
+          <span>Water the crops</span>
+          <input type="checkbox" onchange="toggleTask(this)" aria-label="Mark task as complete">
+        </li>
+        <li>
+          <span>Fertilize plants</span>
+          <input type="checkbox" onchange="toggleTask(this)" aria-label="Mark task as complete">
+        </li>
+      </ul>
+      
+      <h3>Add New Task</h3>
+      <label for="new-task">Task Description:</label>
+      <input type="text" id="new-task" placeholder="Enter new task">
+      <button onclick="addTask()">Add Task</button>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Good For Your Heart Farms. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    function toggleTask(checkbox) {
+      const taskText = checkbox.parentElement.querySelector('span');
+      taskText.classList.toggle('task-done', checkbox.checked);
+    }
+    
+    function addTask() {
+      const taskList = document.getElementById('task-list');
+      const newTaskText = document.getElementById('new-task').value;
+      if (!newTaskText.trim()) return;
+      
+      const li = document.createElement('li');
+      const span = document.createElement('span');
+      span.textContent = newTaskText;
+      
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.setAttribute('aria-label', 'Mark task as complete');
+      checkbox.onchange = function() { toggleTask(this); };
+      
+      li.appendChild(span);
+      li.appendChild(checkbox);
+      taskList.appendChild(li);
+      
+      document.getElementById('new-task').value = '';
+    }
+  </script>
+</body>
+</html>

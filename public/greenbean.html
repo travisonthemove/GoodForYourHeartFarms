@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Green Bean - Good For Your Heart Farms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Basic styling for accessibility and responsiveness */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f5f5f5;
+    }
+    header, main, footer {
+      max-width: 800px;
+      margin: 1rem auto;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #2a5d34;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .gallery figure {
+      flex: 1 1 calc(33% - 1rem);
+      margin: 0;
+    }
+    .gallery img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    @media (max-width: 600px) {
+      .gallery figure {
+        flex: 1 1 100%;
+      }
+    }
+    a {
+      color: #2a5d34;
+      text-decoration: none;
+      padding: 0.5em 1em;
+      border: 1px solid #2a5d34;
+      border-radius: 4px;
+      margin-right: 0.5em;
+    }
+    .share-section {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #e9f5e9;
+      border-radius: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Green Bean Variety at Good For Your Heart Farms</h1>
+    <p>Discover our locally grown green beans, harvested with care in the Appalachian region. Learn about their lifecycle, growing methods, and more.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="lifecycle">
+      <h2 id="lifecycle">Green Bean Lifecycle</h2>
+      <div class="gallery">
+        <figure>
+          <img src="images/greenbean_seed.jpg" alt="Green bean seed planted in soil">
+          <figcaption>Seed Stage</figcaption>
+        </figure>
+        <figure>
+          <img src="images/greenbean_sprout.jpg" alt="Green bean sprout emerging">
+          <figcaption>Sprout Stage</figcaption>
+        </figure>
+        <figure>
+          <img src="images/greenbean_mature.jpg" alt="Mature green bean plant in full growth">
+          <figcaption>Mature Stage</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="product-info">
+      <h2 id="product-info">Product Information</h2>
+      <p>Our green beans are grown using organic methods and are known for their crisp texture and rich flavor. They're perfect for fresh salads, stir-fries, and more.</p>
+      <ul>
+        <li><strong>Variety:</strong> Appalachian Green Bean</li>
+        <li><strong>Harvest Season:</strong> June - August</li>
+        <li><strong>Growing Method:</strong> Organic &amp; sustainable farming</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="resources">
+      <h2 id="resources">Learn More</h2>
+      <p>Interested in how we grow our green beans? Check out these resources for additional gardening insights:</p>
+      <ul>
+        <li><a href="https://localharvest.org" target="_blank" rel="noopener">LocalHarvest</a></li>
+        <li><a href="https://garden.org" target="_blank" rel="noopener">Garden.org</a></li>
+        <li><a href="https://www.gardeningknowhow.com" target="_blank" rel="noopener">Gardening Know How</a></li>
+      </ul>
+    </section>
+    
+    <section class="share-section" aria-labelledby="share-experience">
+      <h2 id="share-experience">Share your experience at Good For Your Heart Farms!</h2>
+      <p>Let others know about your visit:</p>
+      <a href="#" role="button" aria-label="Share on Facebook">Facebook</a>
+      <a href="#" role="button" aria-label="Share on Twitter">Twitter</a>
+      <a href="#" role="button" aria-label="Share on Instagram">Instagram</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Good For Your Heart Farms. All rights reserved.</p>
+  </footer>
+</body>
+</html>

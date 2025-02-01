@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>High Tunnel H1 Admin - Good For Your Heart Farms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Basic styles for admin panel */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f5f5f5;
+    }
+    header, main, footer {
+      max-width: 800px;
+      margin: 1rem auto;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #2a5d34;
+    }
+    label {
+      display: block;
+      margin-top: 0.5rem;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.3rem 0;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      border: none;
+      background: #2a5d34;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .task-done {
+      text-decoration: line-through;
+    }
+    .admin-nav {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: #ccc;
+      color: #000;
+      padding: 0.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Link back to public view if needed -->
+  <a href="h1-public.html" class="admin-nav" aria-label="Return to Public View">Public</a>
+
+  <header>
+    <h1>High Tunnel H1 Admin Panel</h1>
+    <p>Manage maintenance tasks for High Tunnel H1 at Good For Your Heart Farms.</p>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Maintenance Tasks</h2>
+      <ul id="tunnel-task-list">
+        <!-- Example tunnel tasks -->
+        <li>
+          <span>Check gutters</span>
+          <input type="checkbox" onchange="toggleTunnelTask(this)" aria-label="Mark task as complete">
+        </li>
+        <li>
+          <span>Replace leaking drip line</span>
+          <input type="checkbox" onchange="toggleTunnelTask(this)" aria-label="Mark task as complete">
+        </li>
+        <li>
+          <span>Ensure sides are raised</span>
+          <input type="checkbox" onchange="toggleTunnelTask(this)" aria-label="Mark task as complete">
+        </li>
+      </ul>
+      
+      <h3>Add New Maintenance Task</h3>
+      <label for="new-tunnel-task">Task Description:</label>
+      <input type="text" id="new-tunnel-task" placeholder="Enter new task">
+      <button onclick="addTunnelTask()">Add Task</button>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Good For Your Heart Farms. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    function toggleTunnelTask(checkbox) {
+      const taskText = checkbox.parentElement.querySelector('span');
+      taskText.classList.toggle('task-done', checkbox.checked);
+    }
+    
+    function addTunnelTask() {
+      const taskList = document.getElementById('tunnel-task-list');
+      const newTaskText = document.getElementById('new-tunnel-task').value;
+      if (!newTaskText.trim()) return;
+      
+      const li = document.createElement('li');
+      const span = document.createElement('span');
+      span.textContent = newTaskText;
+      
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.setAttribute('aria-label', 'Mark task as complete');
+      checkbox.onchange = function() { toggleTunnelTask(this); };
+      
+      li.appendChild(span);
+      li.appendChild(checkbox);
+      taskList.appendChild(li);
+      
+      document.getElementById('new-tunnel-task').value = '';
+    }
+  </script>
+</body>
+</html>
