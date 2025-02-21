@@ -1,71 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>High Tunnel H1 - Green Bean & Community Tunnel | Good For Your Heart Farms</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>High Tunnel H1 - Green Bean &amp; Community Tunnel | Good For Your Heart Farms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* Admin button styling */
+    /* ---------- Base Styles ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f3f7f3;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ---------- Admin Button ---------- */
     .admin-btn {
-      position: fixed; /* or absolute, if preferred */
+      position: fixed;
       top: 1rem;
       right: 1rem;
-      background: #ccc;
+      background-color: #ddd;
       color: #000;
       padding: 0.5rem 1rem;
       border-radius: 4px;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       z-index: 1000;
+      border: 1px solid #ccc;
+    }
+    .admin-btn:hover {
+      background-color: #ccc;
     }
 
-    /* Basic styling for accessibility and responsiveness */
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 1rem;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-    header, main, footer {
+    /* ---------- Layout Containers ---------- */
+    header,
+    main,
+    footer {
       max-width: 900px;
-      margin: 1rem auto;
-      background: #fff;
-      padding: 1rem;
+      margin: 3rem auto;
+      background-color: #fff;
+      padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     }
-    h1, h2 {
+    header {
+      margin-top: 4rem; /* So it doesn't overlap with the admin button */
+    }
+
+    /* ---------- Headings ---------- */
+    h1,
+    h2 {
+      color: #2a5d34; /* A green shade */
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
+    }
+
+    /* ---------- Paragraphs, Lists ---------- */
+    p {
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---------- Links & Buttons ---------- */
+    a {
       color: #2a5d34;
+      text-decoration: none;
+      transition: background-color 0.2s, color 0.2s;
     }
+    a:hover {
+      opacity: 0.8;
+    }
+    a[role="button"] {
+      display: inline-block;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: 1px solid #2a5d34;
+      background-color: #f8fff7;
+      text-align: center;
+    }
+    a[role="button"]:hover {
+      background-color: #2a5d34;
+      color: #fff;
+    }
+
+    /* ---------- Gallery ---------- */
     .gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+      margin-bottom: 1rem;
     }
     .gallery figure {
       flex: 1 1 calc(50% - 1rem);
       margin: 0;
-    }
-    .gallery img {
-      max-width: 100%;
-      height: auto;
+      border: 1px solid #e1e1e1;
       border-radius: 4px;
+      overflow: hidden;
+      background-color: #fafafa;
+    }
+    .gallery figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gallery figcaption {
+      font-size: 0.9rem;
+      padding: 0.5rem;
+      text-align: center;
+      background-color: #f0f2f0;
     }
     @media (max-width: 600px) {
       .gallery figure {
         flex: 1 1 100%;
       }
     }
-    a {
-      color: #2a5d34;
-      text-decoration: none;
-      padding: 0.5em 1em;
-      border: 1px solid #2a5d34;
-      border-radius: 4px;
-      margin-right: 0.5em;
-    }
+
+    /* ---------- Share Section ---------- */
     .share-section {
       margin-top: 2rem;
       padding: 1rem;
@@ -73,26 +142,46 @@
       border-radius: 8px;
       text-align: center;
     }
-    ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
+
+    /* ---------- Footer ---------- */
+    footer p {
+      font-size: 0.9rem;
+      text-align: center;
+      color: #666;
     }
   </style>
 </head>
 <body>
+
   <!-- Discreet Admin Button -->
   <a href="/admin/h1-admin.html" class="admin-btn" aria-label="Admin Panel for High Tunnel H1">Admin</a>
+
+  <!-- ---------- Header ---------- -->
   <header>
-    <h1>High Tunnel H1: Green Bean & Community Tunnel</h1>
-    <p>Welcome to our High Tunnel H1 at Good For Your Heart Farms, where green beans flourish and community meets innovation. Funded by an NRCS grant in 2020, this tunnel is not just a place for growing produce—it's a story of sustainable practices and community collaboration.</p>
+    <h1>High Tunnel H1: Green Bean &amp; Community Tunnel</h1>
+    <p>
+      Welcome to our High Tunnel H1 at Good For Your Heart Farms, where
+      green beans flourish and the community meets innovation. Funded by
+      an NRCS grant in 2020, this tunnel is not just a place for growing
+      produce—it's a story of sustainable practices and collaboration.
+    </p>
   </header>
 
+  <!-- ---------- Main ---------- -->
   <main>
+
+    <!-- About Section -->
     <section aria-labelledby="about-tunnel">
       <h2 id="about-tunnel">About the Tunnel</h2>
-      <p>This 90x30 foot high tunnel is designed to optimize growth for our green beans while providing an engaging experience for visitors. With features tailored for efficient production and sustainability, H1 is a hub of innovation and community spirit.</p>
+      <p>
+        This 90×30 foot high tunnel is designed to optimize growth for our
+        green beans while providing an engaging experience for visitors.
+        With features tailored for efficient production and sustainability,
+        H1 is a hub of innovation and community spirit.
+      </p>
     </section>
 
+    <!-- Features Section -->
     <section aria-labelledby="features">
       <h2 id="features">Key Features</h2>
       <ul>
@@ -100,50 +189,65 @@
         <li><strong>Gutter Water Collection:</strong> Water is collected into three 300-gallon tanks.</li>
         <li><strong>Solar Fans:</strong> Powered ventilation ensuring a healthy growing environment.</li>
         <li><strong>Ground Fabric:</strong> Prevents weeds and conserves soil moisture.</li>
-        <li><strong>T-Pole Support with Plastic Trellising:</strong> For optimal plant support and structure.</li>
+        <li><strong>T-Pole Support &amp; Plastic Trellising:</strong> For optimal plant support and structure.</li>
       </ul>
-      <p>All these elements combine to create a sustainable and efficient space where green beans and community connections thrive.</p>
+      <p>
+        All these elements combine to create a sustainable and efficient
+        space where green beans and community connections thrive.
+      </p>
     </section>
 
+    <!-- Gallery Section -->
     <section aria-labelledby="gallery">
       <h2 id="gallery">Gallery</h2>
       <div class="gallery">
         <figure>
-          <img src="images/h1_overview.jpg" alt="Overview of High Tunnel H1">
+          <img src="images/h1_overview.jpg" alt="Overview of High Tunnel H1" />
           <figcaption>High Tunnel H1 Overview</figcaption>
         </figure>
         <figure>
-          <img src="images/h1_drip.jpg" alt="Drip watering system in High Tunnel H1">
+          <img src="images/h1_drip.jpg" alt="Drip watering system in High Tunnel H1" />
           <figcaption>Drip Watering System</figcaption>
         </figure>
         <figure>
-          <img src="images/h1_solar_fans.jpg" alt="Solar fans installed in the tunnel">
+          <img src="images/h1_solar_fans.jpg" alt="Solar fans installed in the tunnel" />
           <figcaption>Solar Fans in Action</figcaption>
         </figure>
         <figure>
-          <img src="images/h1_trellising.jpg" alt="T-Pole and plastic trellising support">
+          <img src="images/h1_trellising.jpg" alt="T-Pole and plastic trellising support" />
           <figcaption>Plant Support System</figcaption>
         </figure>
       </div>
     </section>
 
+    <!-- Community Impact Section -->
     <section aria-labelledby="community">
       <h2 id="community">Community Impact</h2>
-      <p>Our tunnel is more than just a growing space—it’s a community hub where visitors can learn about sustainable farming practices, join in workshops, and experience first-hand the care and innovation that goes into every crop.</p>
-      <p>Want to learn more about our initiatives or share your thoughts? <a href="contact.html">Contact us</a> to get involved!</p>
+      <p>
+        Our tunnel is more than just a growing space—it’s a community hub where
+        visitors can learn about sustainable farming practices, join in workshops,
+        and experience first-hand the care and innovation that goes into every crop.
+      </p>
+      <p>
+        Want to learn more about our initiatives or share your thoughts?
+        <a href="contact.html">Contact us</a> to get involved!
+      </p>
     </section>
-    
+
+    <!-- Share Section -->
     <section class="share-section" aria-labelledby="share-experience">
-      <h2 id="share-experience">Share your experience at Good For Your Heart Farms!</h2>
-      <p>Spread the word about your visit:</p>
+      <h2 id="share-experience">Share Your Experience!</h2>
+      <p>Spread the word about your visit to Good For Your Heart Farms:</p>
       <a href="#" role="button" aria-label="Share on Facebook">Facebook</a>
       <a href="#" role="button" aria-label="Share on Twitter">Twitter</a>
       <a href="#" role="button" aria-label="Share on Instagram">Instagram</a>
     </section>
   </main>
 
+  <!-- ---------- Footer ---------- -->
   <footer>
     <p>&copy; 2025 Good For Your Heart Farms. All rights reserved.</p>
   </footer>
+
 </body>
 </html>

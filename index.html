@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Good For Your Heart Farms - Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* Admin button styling */
+    /* ---------- Base Reset & Box Sizing ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ---------- Body & Global Styles ---------- */
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f3f7f3;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ---------- Admin Button Styles ---------- */
     .admin-btn {
-      position: fixed; /* or absolute, if preferred */
+      position: fixed;
       top: 1rem;
       right: 1rem;
       background: #ccc;
@@ -17,107 +32,211 @@
       text-decoration: none;
       font-size: 0.9rem;
       z-index: 1000;
+      border: 1px solid #999;
     }
-    /* Base styles for accessibility and responsiveness */
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
+    .admin-btn:hover {
+      background-color: #bbb;
     }
-    header, main, footer {
-      max-width: 1000px;
-      margin: auto;
-      padding: 1rem;
-      background: #fff;
-    }
+
+    /* ---------- Header ---------- */
     header {
       background-color: #2a5d34;
       color: #fff;
-      padding: 1rem;
       text-align: center;
+      padding: 2rem 1rem;
     }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.1rem;
+    }
+
+    /* ---------- Navigation ---------- */
     nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
       background-color: #e9f5e9;
-      padding: 0.5rem;
-      text-align: center;
+      padding: 0.75rem;
     }
     nav a {
       color: #2a5d34;
       text-decoration: none;
-      margin: 0 1rem;
       padding: 0.5rem 1rem;
       border: 1px solid #2a5d34;
       border-radius: 4px;
+      transition: background-color 0.2s, color 0.2s;
     }
-    nav a:hover, nav a:focus {
+    nav a:hover,
+    nav a:focus {
       background-color: #2a5d34;
       color: #fff;
     }
-    main {
-      padding: 2rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #e9f5e9;
-      margin-top: 2rem;
-    }
+
+    /* ---------- Hero Section ---------- */
     .hero {
-      background-image: url('images/farm_overview.jpg');
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      padding: 3rem 1rem;
+      position: relative;
+      background: url('images/farm_overview.jpg') center/cover no-repeat;
       text-align: center;
+      color: #fff;
+      padding: 4rem 1rem;
     }
     .hero h1 {
-      font-size: 2.5rem;
-      margin: 0;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
     .hero p {
       font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0.5rem auto;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* ---------- Main ---------- */
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    main section {
+      margin-bottom: 2rem;
+    }
+    main h2 {
+      color: #2a5d34;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    main p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    /* ---------- Lists ---------- */
+    ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---------- Share Links ---------- */
+    a[role="button"] {
+      display: inline-block;
+      margin: 0.25rem 0.5rem 0.25rem 0;
+      padding: 0.5rem 1rem;
+      border: 1px solid #2a5d34;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #2a5d34;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    a[role="button"]:hover {
+      background-color: #2a5d34;
+      color: #fff;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background-color: #e9f5e9;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      color: #2a5d34;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* ---------- Responsive Adjustments ---------- */
+    @media (max-width: 600px) {
+      header,
+      nav,
+      main,
+      footer {
+        padding: 1rem;
+      }
+      .hero {
+        padding: 3rem 1rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      nav a {
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
+
   <!-- Discreet Admin Button -->
-  <a href="GoodForYourHeartFarms/admin/admin.html" class="admin-btn" aria-label="Admin Panel for Home-Dashboard">Admin</a>
+  <a href="admin/admin.html" class="admin-btn" aria-label="Admin Panel for Home-Dashboard">Admin</a>
+
+  <!-- ---------- Header ---------- -->
   <header>
     <h1>Good For Your Heart Farms</h1>
     <p>Your Local Appalachian Farm Experience</p>
   </header>
-  
+
+  <!-- ---------- Navigation ---------- -->
   <nav>
     <a href="public/greenbean.html">Green Beans</a>
     <a href="public/h1-public.html">High Tunnel H1</a>
     <!-- Add more navigation links as needed -->
   </nav>
-  
+
+  <!-- ---------- Hero Section ---------- -->
   <section class="hero" role="img" aria-label="A scenic view of Good For Your Heart Farms">
     <h1>Welcome to Good For Your Heart Farms</h1>
     <p>Discover the story behind our sustainable farming practices, local produce, and community spirit in the Appalachian region.</p>
   </section>
-  
+
+  <!-- ---------- Main Content ---------- -->
   <main>
+    <!-- Our Story Section -->
     <section>
       <h2>Our Story</h2>
       <p>
-        At Good For Your Heart Farms, we’re committed to sustainable agriculture and community engagement. Our farm offers immersive experiences through QR codes that connect you to the story behind each crop and special features like our innovative high tunnels.
+        At Good For Your Heart Farms, we’re committed to sustainable agriculture
+        and community engagement. Our farm offers immersive experiences through
+        QR codes that connect you to the story behind each crop and special
+        features like our innovative high tunnels.
       </p>
     </section>
-    
+
+    <!-- Explore Our Farm Section -->
     <section>
       <h2>Explore Our Farm</h2>
       <ul>
-        <li><strong>Green Beans:</strong> Learn about the lifecycle and growing methods of our signature green bean variety.</li>
-        <li><strong>High Tunnel H1:</strong> See how we use state-of-the-art methods in our high tunnel to grow quality produce.</li>
+        <li>
+          <strong>Green Beans:</strong> Learn about the lifecycle and growing
+          methods of our signature green bean variety.
+        </li>
+        <li>
+          <strong>High Tunnel H1:</strong> See how we use state-of-the-art
+          methods in our high tunnel to grow quality produce.
+        </li>
         <!-- Add more list items for other features -->
       </ul>
       <p>Click the navigation links above to explore each section.</p>
     </section>
-    
+
+    <!-- Share Experience Section -->
     <section>
       <h2>Share Your Experience</h2>
       <p>We'd love to hear from you! Share your visit on social media:</p>
@@ -128,7 +247,8 @@
       </p>
     </section>
   </main>
-  
+
+  <!-- ---------- Footer ---------- -->
   <footer>
     <p>&copy; 2025 Good For Your Heart Farms. All rights reserved.</p>
   </footer>

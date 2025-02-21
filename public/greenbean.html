@@ -1,70 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Green Bean - Good For Your Heart Farms</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    /* Admin button styling */
+    /* ---------- Base Styles ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f3f7f3;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ---------- Admin Button ---------- */
     .admin-btn {
-      position: fixed; /* or absolute, if preferred */
+      position: fixed;
       top: 1rem;
       right: 1rem;
-      background: #ccc;
+      background-color: #ddd;
       color: #000;
       padding: 0.5rem 1rem;
       border-radius: 4px;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       z-index: 1000;
+      border: 1px solid #ccc;
+    }
+    .admin-btn:hover {
+      background-color: #ccc;
     }
 
-    /* Basic styling for accessibility and responsiveness */
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 1rem;
-      background-color: #f5f5f5;
-    }
-    header, main, footer {
+    /* ---------- Layout Containers ---------- */
+    header,
+    main,
+    footer {
       max-width: 800px;
-      margin: 1rem auto;
+      margin: 2rem auto;
       background-color: #fff;
-      padding: 1rem;
+      padding: 1.5rem;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     }
-    h1, h2 {
+
+    header {
+      margin-top: 4rem; /* So it doesn't overlap with the admin button */
+    }
+
+    /* ---------- Headings ---------- */
+    h1,
+    h2 {
+      color: #2a5d34; /* A green shade */
+      margin-bottom: 0.75rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
+    }
+
+    /* ---------- Paragraphs & Lists ---------- */
+    p {
+      margin-bottom: 1rem;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---------- Links & Buttons ---------- */
+    a {
       color: #2a5d34;
+      text-decoration: none;
+      transition: background-color 0.2s, color 0.2s;
     }
+    a:hover {
+      opacity: 0.8;
+    }
+    a[role="button"] {
+      display: inline-block;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: 1px solid #2a5d34;
+      background-color: #f8fff7;
+      text-align: center;
+    }
+    a[role="button"]:hover {
+      background-color: #2a5d34;
+      color: #fff;
+    }
+
+    /* ---------- Gallery ---------- */
     .gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+      margin-bottom: 1rem;
     }
     .gallery figure {
-      flex: 1 1 calc(33% - 1rem);
+      flex: 1 1 calc(33.333% - 1rem);
       margin: 0;
-    }
-    .gallery img {
-      max-width: 100%;
-      height: auto;
+      border: 1px solid #e1e1e1;
       border-radius: 4px;
+      overflow: hidden;
+      background-color: #fafafa;
+    }
+    .gallery figure img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gallery figcaption {
+      font-size: 0.9rem;
+      padding: 0.5rem;
+      text-align: center;
+      background-color: #f0f2f0;
     }
     @media (max-width: 600px) {
       .gallery figure {
         flex: 1 1 100%;
       }
     }
-    a {
-      color: #2a5d34;
-      text-decoration: none;
-      padding: 0.5em 1em;
-      border: 1px solid #2a5d34;
-      border-radius: 4px;
-      margin-right: 0.5em;
-    }
+
+    /* ---------- Share Section ---------- */
     .share-section {
       margin-top: 2rem;
       padding: 1rem;
@@ -72,39 +145,62 @@
       border-radius: 8px;
       text-align: center;
     }
+    .share-section h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---------- Footer ---------- */
+    footer p {
+      font-size: 0.9rem;
+      text-align: center;
+      color: #666;
+    }
   </style>
 </head>
 <body>
-  <!-- Discreet Admin Button -->
-  <a href="GoodForYourHeartFarms/admin/greenbean-admin.html" class="admin-btn" aria-label="Admin Panel for Green Beans">Admin</a>
 
+  <!-- Discreet Admin Button -->
+  <a href="/admin/greenbean-admin.html" class="admin-btn" aria-label="Admin Panel for Green Beans">Admin</a>
+
+  <!-- ---------- Header ---------- -->
   <header>
     <h1>Green Bean Variety at Good For Your Heart Farms</h1>
-    <p>Discover our locally grown green beans, harvested with care in the Appalachian region. Learn about their lifecycle, growing methods, and more.</p>
+    <p>
+      Discover our locally grown green beans, harvested with care in the
+      Appalachian region. Learn about their lifecycle, growing methods, and more.
+    </p>
   </header>
 
+  <!-- ---------- Main ---------- -->
   <main>
+
+    <!-- Lifecycle Section -->
     <section aria-labelledby="lifecycle">
       <h2 id="lifecycle">Green Bean Lifecycle</h2>
       <div class="gallery">
         <figure>
-          <img src="images/greenbean_seed.jpg" alt="Green bean seed planted in soil">
+          <img src="images/greenbean_seed.jpg" alt="Green bean seed planted in soil" />
           <figcaption>Seed Stage</figcaption>
         </figure>
         <figure>
-          <img src="images/greenbean_sprout.jpg" alt="Green bean sprout emerging">
+          <img src="images/greenbean_sprout.jpg" alt="Green bean sprout emerging" />
           <figcaption>Sprout Stage</figcaption>
         </figure>
         <figure>
-          <img src="images/greenbean_mature.jpg" alt="Mature green bean plant in full growth">
+          <img src="images/greenbean_mature.jpg" alt="Mature green bean plant in full growth" />
           <figcaption>Mature Stage</figcaption>
         </figure>
       </div>
     </section>
 
+    <!-- Product Information Section -->
     <section aria-labelledby="product-info">
       <h2 id="product-info">Product Information</h2>
-      <p>Our green beans are grown using organic methods and are known for their crisp texture and rich flavor. They're perfect for fresh salads, stir-fries, and more.</p>
+      <p>
+        Our green beans are grown using organic methods and are known
+        for their crisp texture and rich flavor. They're perfect for
+        fresh salads, stir-fries, and more.
+      </p>
       <ul>
         <li><strong>Variety:</strong> Appalachian Green Bean</li>
         <li><strong>Harvest Season:</strong> June - August</li>
@@ -112,27 +208,34 @@
       </ul>
     </section>
 
+    <!-- Additional Resources Section -->
     <section aria-labelledby="resources">
       <h2 id="resources">Learn More</h2>
-      <p>Interested in how we grow our green beans? Check out these resources for additional gardening insights:</p>
+      <p>
+        Interested in how we grow our green beans? Check out these
+        resources for additional gardening insights:
+      </p>
       <ul>
         <li><a href="https://localharvest.org" target="_blank" rel="noopener">LocalHarvest</a></li>
         <li><a href="https://garden.org" target="_blank" rel="noopener">Garden.org</a></li>
         <li><a href="https://www.gardeningknowhow.com" target="_blank" rel="noopener">Gardening Know How</a></li>
       </ul>
     </section>
-    
+
+    <!-- Share Section -->
     <section class="share-section" aria-labelledby="share-experience">
-      <h2 id="share-experience">Share your experience at Good For Your Heart Farms!</h2>
-      <p>Let others know about your visit:</p>
+      <h2 id="share-experience">Share your experience!</h2>
+      <p>Let others know about your visit to Good For Your Heart Farms:</p>
       <a href="#" role="button" aria-label="Share on Facebook">Facebook</a>
       <a href="#" role="button" aria-label="Share on Twitter">Twitter</a>
       <a href="#" role="button" aria-label="Share on Instagram">Instagram</a>
     </section>
   </main>
 
+  <!-- ---------- Footer ---------- -->
   <footer>
     <p>&copy; 2025 Good For Your Heart Farms. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
